@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSV Upload</title>
+    <style>
+      .container-top{
+        width: 50%;
+        background-color: red;
+      }
+
+      .container-bottum{
+        width: 50%;
+        background-color: blue;
+        text-align: right;
+      }
+
+      .justify-content-center{
+        text-align: right;
+      }
+
+      .vertical {
+      border-left: 6px solid red;
+      height: 200px;
+      position:absolute;
+      left: 50%;
+    }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: cyan; color: black;">
+
+    <!-- home.ejs -->
+<div class="container-top">
+<h1 align="center" style="margin-top: 50px;">Uploaded Files</h1>
+
+<table align="center" style="margin-top: 40px;">
+    <thead>
+      <tr>
+        <th>Filename</th>
+        <th> </th>
+        <th > </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody align="center">
+      <% files.forEach(function(file) { %>
+        <tr>
+          <td><%= file.filename %></td>
+          <td> </td>
+          <td> </td>
+          <td>
+            <a href="/csv/<%= file._id %>">View</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+
+
+
+
+  <!-- <div style="height: 5px; width: auto; background-color: rgb(241, 17, 17); margin-top: 30px; border-radius: 25px;">
+  </div> -->
+  <h1>  </h1>
+  <div class = "vertical"></div>
+  
+
+
+    <span class="container-bottum">
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">CSV Upload</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6" align="center">
+                <form action="/upload" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="csvFile">Select a CSV file to upload:</label>
+                        <input type="file" class="form-control-file" id="csvFile" name="csv" accept=".csv" style="margin-left: 177px;">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="margin-left: -108px;">Upload</button>
+                </form>
+            </div>
+        </div>
+      </span>
+
+    
+
+  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</div>
+
+</html>
